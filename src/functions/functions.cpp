@@ -1,13 +1,6 @@
-#include <Arduino.h>
-#include <Servo.h>
-#include <TFT_eSPI.h>
-
-#include "functions.h"
-#include "pins/pins.h"
+#include "variables/variables.h"
 #include "classes/classes.h"
-
-unsigned long ledInterval = millis();
-unsigned long servoInterval = millis();
+#include "variables/variables.h"
 
 /**
  * Function that controls the LEDs
@@ -18,14 +11,14 @@ void ledFunctionality(uint8_t milliseconds)
     if (millis() - ledInterval == milliseconds)
     {
         for (int i = 0; i < 4; i++)
-            digitalWrite(led[i], HIGH);
+            digitalWrite(ledPin[i], HIGH);
 
         ledInterval = millis();
     }
     else
     {
         for (int i = 0; i < 4; i++)
-            digitalWrite(led[i], LOW);
+            digitalWrite(ledPin[i], LOW);
     }
 }
 
@@ -43,5 +36,24 @@ void servoFunctionality(uint8_t milliseconds)
     else
     {
         servo.write(0);
+    }
+}
+
+void displayBTCheck()
+{
+    if (tft.getTouch(&x, &y))
+    {
+        if ((x > Button1.coordX) && (x < (Button1.coordX + Button1.width)) && (y > Button1.coordY) && (y < (Button1.coordY + Button1.height)) && (millis() - touchInterval > 500))
+        {
+            tft.fillRect(Button1.coordX, Button1.coordY, Button1.width, Button1.height, TFT_GREEN);
+            tft.setCursor(Button1.coordX + 10, Button1.coordY + 10);
+            digitalWrite(ledPin[0], HIGH);
+        }
+        else
+        {
+            tft.fillRect(Button1.coordX, Button1.coordY, Button1.width, Button1.height, TFT_BLUE);
+            tft.setCursor(Button1.coordX + 10, Button1.coordY + 10);
+            digitalWrite(ledPin[0], LOW);
+        }
     }
 }

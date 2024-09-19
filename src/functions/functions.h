@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 
+extern void displayBTCheck();
 extern void ledFunctionality(uint8_t milliseconds);
 extern void servoFunctionality(uint8_t milliseconds);
 
