@@ -6,9 +6,9 @@
  * 13 -> Servo
  */
 
-const uint8_t ledPin[4] = {10, 11, 12, 13};
-const uint8_t proximitySensorPin = 14;
-const uint8_t servoPin = 13;
+extern const uint8_t ledPin[4] = {10, 11, 12, 13};
+extern const uint8_t proximitySensorPin = 14;
+extern const uint8_t servoPin = 13;
 
 // The time in milliseconds that the LEDs will be on
 unsigned long ledInterval;

@@ -3,6 +3,8 @@
 #include "classes/classes.h"
 #include "setup/setup.h"
 
+#include <stdint.h>
+
 void setup()
 {
   projectSetup();

@@ -2,6 +2,7 @@
 #define DISPLAYBT_H
 
 #include <stdint.h>
+
 class DisplayBT
 {
 public:
