@@ -39,20 +39,23 @@ void servoFunctionality(uint8_t milliseconds)
     }
 }
 
+/**
+ * Checks if the display has been touched and updates the display and other functionalities.
+ */
 void displayBTCheck()
 {
-    if (tft.getTouch(&x, &y))
+    if (display.getTouch(&x, &y))
     {
         if ((x > Button1.coordX) && (x < (Button1.coordX + Button1.width)) && (y > Button1.coordY) && (y < (Button1.coordY + Button1.height)) && (millis() - touchInterval > 500))
         {
-            tft.fillRect(Button1.coordX, Button1.coordY, Button1.width, Button1.height, TFT_GREEN);
-            tft.setCursor(Button1.coordX + 10, Button1.coordY + 10);
+            display.fillRect(Button1.coordX, Button1.coordY, Button1.width, Button1.height, TFT_GREEN);
+            display.setCursor(Button1.coordX + 10, Button1.coordY + 10);
             digitalWrite(ledPin[0], HIGH);
         }
         else
         {
-            tft.fillRect(Button1.coordX, Button1.coordY, Button1.width, Button1.height, TFT_BLUE);
-            tft.setCursor(Button1.coordX + 10, Button1.coordY + 10);
+            display.fillRect(Button1.coordX, Button1.coordY, Button1.width, Button1.height, TFT_BLUE);
+            display.setCursor(Button1.coordX + 10, Button1.coordY + 10);
             digitalWrite(ledPin[0], LOW);
         }
     }

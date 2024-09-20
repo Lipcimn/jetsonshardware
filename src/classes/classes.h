@@ -6,7 +6,7 @@
 #include "DisplayBT/DisplayBT.h"
 
 extern Servo servo;
-extern TFT_eSPI tft;
+extern TFT_eSPI display;
 extern DisplayBT Button1(0, 0, 320, 240);
 
 #endif
