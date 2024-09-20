@@ -1,6 +1,5 @@
 #include "variables/variables.h"
 #include "classes/classes.h"
-#include "variables/variables.h"
 
 /**
  * Function that controls the LEDs
