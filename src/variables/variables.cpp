@@ -20,4 +20,4 @@ unsigned long servoInterval;
 unsigned long touchInterval;
 
 // Touch coordinate variables:
-uint16_t x, y;
+uint16_t x = 0, y = 0;
