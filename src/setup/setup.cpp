@@ -7,6 +7,8 @@
  */
 void projectSetup()
 {
+    Serial.begin(9600);
+
     servo.attach(servoPin);
 
     pinMode(proximitySensorPin, INPUT);
@@ -14,7 +16,7 @@ void projectSetup()
         pinMode(ledPin[i], OUTPUT);
 
     display.begin();
-    display.setRotation(1);
+    display.setRotation(0);
     display.fillScreen(TFT_BLACK);
     display.setTextSize(1);
     display.setTextColor(TFT_WHITE);
@@ -23,6 +25,15 @@ void projectSetup()
     display.fillRect(Button1.coordX, Button1.coordY, Button1.width, Button1.height, TFT_BLUE);
     display.setCursor(Button1.coordX + 10, Button1.coordY + 10);
     display.print("LED1");
+
+    if (!ts.begin(40))
+    { // pass in 'sensitivity' coefficient
+        Serial.println("Couldn't start FT6206 touchscreen controller");
+        while (1)
+            ;
+    }
+
+    Serial.println("Capacitive touchscreen started");
 
     ledInterval = millis();
     servoInterval = millis();

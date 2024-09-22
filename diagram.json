@@ -11,7 +11,7 @@
       "attrs": {}
     },
     {
-      "type": "wokwi-ili9341",
+      "type": "board-ili9341-cap-touch",
       "id": "lcd1",
       "top": -76.8,
       "left": -86.4,
@@ -35,7 +35,7 @@
       "purple",
       ["h96", "v172.8", "h0", "v9.6", "h-297.6"]
     ],
-    ["esp:22", "lcd1:SCL", "violet", ["h115.2", "v240", "h-326.4"]]
+    ["esp:22", "lcd1:SCL", "#8f4814", ["h115.2", "v249.6", "h-9.6"]]
   ],
   "dependencies": {}
 }
