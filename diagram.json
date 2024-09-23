@@ -16,6 +16,20 @@
       "top": -76.8,
       "left": -86.4,
       "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -22.8,
+      "left": 243.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": 132.4,
+      "left": 384,
+      "attrs": {}
     }
   ],
   "connections": [
@@ -35,7 +49,17 @@
       "purple",
       ["h96", "v172.8", "h0", "v9.6", "h-297.6"]
     ],
-    ["esp:22", "lcd1:SCL", "#8f4814", ["h115.2", "v249.6", "h-9.6"]]
+    ["esp:22", "lcd1:SCL", "#8f4814", ["h115.2", "v249.6", "h-9.6"]],
+    ["led1:C", "esp:GND.2", "black", ["v0"]],
+    ["led1:A", "esp:17", "magenta", ["v9.6", "h28.8", "v105.6"]],
+    ["servo1:V+", "esp:3V3", "red", ["h-28.8", "v-230.3", "h-201.6"]],
+    ["servo1:GND", "esp:GND.2", "black", ["h-9.6", "v-144"]],
+    [
+      "servo1:PWM",
+      "esp:14",
+      "limegreen",
+      ["h-76.8", "v57.8", "h-172.8", "v-115.2"]
+    ]
   ],
   "dependencies": {}
 }

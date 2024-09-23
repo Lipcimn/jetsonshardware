@@ -10,6 +10,7 @@ void projectSetup()
     Serial.begin(9600);
 
     servo.attach(servoPin);
+    servo.write(0);
 
     pinMode(proximitySensorPin, INPUT);
     for (int i = 0; i < 4; i++)

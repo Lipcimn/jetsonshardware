@@ -5,19 +5,14 @@
  * Function that controls the LEDs
  * @param milliseconds: The time in milliseconds that the LEDs will be on
  */
-void ledFunctionality(uint8_t milliseconds)
+void ledFunctionality(uint16_t milliseconds)
 {
     if (millis() - ledInterval == milliseconds)
     {
         for (int i = 0; i < 4; i++)
-            digitalWrite(ledPin[i], HIGH);
+            digitalWrite(ledPin[i], !digitalRead(ledPin[i]));
 
         ledInterval = millis();
-    }
-    else
-    {
-        for (int i = 0; i < 4; i++)
-            digitalWrite(ledPin[i], LOW);
     }
 }
 
@@ -25,16 +20,13 @@ void ledFunctionality(uint8_t milliseconds)
  * Function that controls the Servo
  * @param milliseconds: The time in milliseconds that the Servo will be on
  */
-void servoFunctionality(uint8_t milliseconds)
+void servoFunctionality(uint16_t milliseconds)
 {
     if (millis() - servoInterval == milliseconds)
     {
-        servo.write(180);
+        Serial.println(servo.read());
+        servo.write((servo.read() == -1) ? 180 : 0);
         servoInterval = millis();
-    }
-    else
-    {
-        servo.write(0);
     }
 }
 
@@ -61,8 +53,7 @@ void displayBTCheck()
     Serial.print("(");
     Serial.print(p.x);
     Serial.print(", ");
-    Serial.print(p.y);
-    Serial.println(")");''
+    Serial.println(p.y);
 
     if ((p.x > Button1.coordX) && (p.x < (Button1.coordX + Button1.width)) && (p.y > Button1.coordY) && (p.y <= (Button1.coordY + Button1.height)) && (millis() - touchInterval > 500))
     {

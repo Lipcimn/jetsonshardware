@@ -13,6 +13,6 @@ void setup()
 void loop()
 {
   displayBTCheck();
-  ledFunctionality(500);
-  servoFunctionality(5000);
+  ledFunctionality((uint16_t)3000);
+  servoFunctionality((uint16_t)1000);
 }
