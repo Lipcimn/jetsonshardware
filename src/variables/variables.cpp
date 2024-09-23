@@ -19,5 +19,8 @@ unsigned long servoInterval;
 // The interval in milliseconds that the user can press the touch button
 unsigned long touchInterval;
 
+// The touch button states
+uint8_t ButtonLED = 0;
+
 // Touch coordinate variables:
 uint16_t x = 0, y = 0;

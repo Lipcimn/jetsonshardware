@@ -9,6 +9,7 @@ extern const uint8_t servoPin;
 extern unsigned long ledInterval;
 extern unsigned long servoInterval;
 extern unsigned long touchInterval;
+extern uint8_t ButtonLED;
 extern uint16_t x;
 extern uint16_t y;
 

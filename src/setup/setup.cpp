@@ -13,7 +13,7 @@ void projectSetup()
     servo.write(0);
 
     pinMode(proximitySensorPin, INPUT);
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < sizeof(ledPin) / sizeof(ledPin[0]); i++)
         pinMode(ledPin[i], OUTPUT);
 
     display.begin();
