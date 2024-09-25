@@ -9,6 +9,7 @@
 extern Servo servo;
 extern TFT_eSPI display;
 extern DisplayBT Button1;
+extern DisplayBT Button2;
 extern Adafruit_FT6206 ts;
 
 #endif

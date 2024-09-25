@@ -21,6 +21,7 @@ unsigned long touchInterval;
 
 // The touch button states
 uint8_t ButtonLED = 0;
+uint8_t ButtonSERVO = 0;
 
 // Touch coordinate variables:
 uint16_t x = 0, y = 0;

@@ -21,11 +21,16 @@ void projectSetup()
     display.fillScreen(TFT_BLACK);
     display.setTextSize(1);
     display.setTextColor(TFT_WHITE);
-    display.setCursor(0, 0);
+
     display.drawRect(Button1.coordX, Button1.coordY, Button1.width, Button1.height, TFT_WHITE);
     display.fillRect(Button1.coordX, Button1.coordY, Button1.width, Button1.height, TFT_BLUE);
     display.setCursor(Button1.coordX + 10, Button1.coordY + 10);
     display.print("LED1");
+
+    display.drawRect(Button2.coordX, Button2.coordY, Button2.width, Button2.height, TFT_WHITE);
+    display.fillRect(Button2.coordX, Button2.coordY, Button2.width, Button2.height, TFT_BLUE);
+    display.setCursor(Button2.coordX + 10, Button2.coordY + 10);
+    display.print("SERVO");
 
     if (!ts.begin(40))
     { // pass in 'sensitivity' coefficient

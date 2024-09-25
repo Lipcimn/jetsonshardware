@@ -7,13 +7,13 @@
  */
 void ledFunctionality(uint16_t milliseconds)
 {
-    if (millis() - ledInterval == milliseconds)
-    {
-        for (int i = 0; i < sizeof(ledPin) / sizeof(ledPin[0]); i++)
-            digitalWrite(ledPin[i], !digitalRead(ledPin[i]));
+    if (millis() - ledInterval != milliseconds)
+        return;
 
-        ledInterval = millis();
-    }
+    for (int i = 0; i < sizeof(ledPin) / sizeof(ledPin[0]); i++)
+        digitalWrite(ledPin[i], !digitalRead(ledPin[i]));
+
+    ledInterval = millis();
 }
 
 /**
@@ -22,11 +22,12 @@ void ledFunctionality(uint16_t milliseconds)
  */
 void servoFunctionality(uint16_t milliseconds)
 {
-    if (millis() - servoInterval == milliseconds)
-    {
-        servo.write((servo.read() == -1) ? 180 : 0);
-        servoInterval = millis();
-    }
+    if (millis() - servoInterval != milliseconds)
+        return;
+
+    servo.write((servo.read() == -1) ? 180 : 0);
+
+    servoInterval = millis();
 }
 
 /**
@@ -54,7 +55,7 @@ void displayBTCheck()
     Serial.print(", ");
     Serial.println(p.y);
 
-    if ((p.x > Button1.coordX) && (p.x < (Button1.coordX + Button1.width)) && (p.y > Button1.coordY) && (p.y <= (Button1.coordY + Button1.height)) && (millis() - touchInterval > 500))
+    if ((p.x > Button1.coordX) && (p.x < (Button1.coordX + Button1.width)) && (p.y > Button1.coordY) && (p.y <= (Button1.coordY + Button1.height)) && (millis() - touchInterval > 250))
     {
         Serial.println("Button touched!");
 
@@ -71,6 +72,31 @@ void displayBTCheck()
             display.print("LED1");
         }
 
+        for (int i = 0; i < sizeof(ledPin) / sizeof(ledPin[0]); i++)
+            digitalWrite(ledPin[i], !digitalRead(ledPin[i]));
         ButtonLED = !ButtonLED;
+        touchInterval = millis();
+    }
+
+    if ((p.x > Button2.coordX) && (p.x < (Button2.coordX + Button2.width)) && (p.y > Button2.coordY) && (p.y <= (Button2.coordY + Button2.height)) && (millis() - touchInterval > 250))
+    {
+        Serial.println("Button touched!");
+
+        if (!ButtonSERVO)
+        {
+            display.fillRect(Button2.coordX, Button2.coordY, Button2.width, Button2.height, TFT_GREEN);
+            display.setCursor(Button2.coordX + 10, Button2.coordY + 10);
+            display.print("SERVO");
+        }
+        else
+        {
+            display.fillRect(Button2.coordX, Button2.coordY, Button2.width, Button2.height, TFT_BLUE);
+            display.setCursor(Button2.coordX + 10, Button2.coordY + 10);
+            display.print("SERVO");
+        }
+
+        servo.write((servo.read() == -1) ? 180 : 0);
+        ButtonSERVO = !ButtonSERVO;
+        touchInterval = millis();
     }
 }
