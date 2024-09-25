@@ -12,7 +12,9 @@ void projectSetup()
     servo.attach(servoPin);
     servo.write(0);
 
-    pinMode(proximitySensorPin, INPUT);
+    pinMode(pirPin, INPUT);
+    pinMode(buzzerPin, OUTPUT);
+
     for (int i = 0; i < sizeof(ledPin) / sizeof(ledPin[0]); i++)
         pinMode(ledPin[i], OUTPUT);
 
@@ -44,4 +46,5 @@ void projectSetup()
     ledInterval = millis();
     servoInterval = millis();
     touchInterval = millis();
+    alarmInterval = millis();
 }

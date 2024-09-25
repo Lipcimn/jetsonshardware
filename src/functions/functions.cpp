@@ -33,7 +33,7 @@ void servoFunctionality(uint16_t milliseconds)
 /**
  * Checks if the display has been touched and updates the display and other functionalities.
  */
-void displayBTCheck()
+void Touch()
 {
 
     if (!ts.touched())
@@ -99,4 +99,18 @@ void displayBTCheck()
         ButtonSERVO = !ButtonSERVO;
         touchInterval = millis();
     }
+}
+
+void Alarm(uint16_t milliseconds)
+{
+    digitalWrite(buzzerPin, (alarmActive) ? HIGH : LOW);
+
+    if (alarmActive && millis() - alarmInterval >= milliseconds) // Checks for alarm variable state
+        alarmActive = 0;
+
+    if (digitalRead(pirPin) == LOW) // Return if PIR Sensor is not activated
+        return;
+
+    if (!alarmActive)
+        alarmActive = 1, alarmInterval = millis();
 }

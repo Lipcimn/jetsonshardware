@@ -3,8 +3,9 @@
 
 #include <stdint.h>
 
-extern void displayBTCheck();
 extern void ledFunctionality(uint16_t milliseconds);
 extern void servoFunctionality(uint16_t milliseconds);
+extern void Touch();
+extern void Alarm(uint16_t milliseconds);
 
 #endif

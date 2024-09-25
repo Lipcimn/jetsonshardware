@@ -12,7 +12,8 @@ void setup()
 
 void loop()
 {
-  displayBTCheck();
+  Touch();
+  Alarm((uint16_t) 10000);
   //ledFunctionality((uint16_t)1000);
   //servoFunctionality((uint16_t)1000);
 }
