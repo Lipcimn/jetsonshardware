@@ -55,48 +55,71 @@ void Touch()
     Serial.print(", ");
     Serial.println(p.y);
 
-    if ((p.x > Button1.coordX) && (p.x < (Button1.coordX + Button1.width)) && (p.y > Button1.coordY) && (p.y <= (Button1.coordY + Button1.height)) && (millis() - touchInterval > 250))
+    if ((p.x > ButtonLED1.coordX) && (p.x < (ButtonLED1.coordX + ButtonLED1.width)) && (p.y > ButtonLED1.coordY) && (p.y <= (ButtonLED1.coordY + ButtonLED1.height)) && (millis() - touchInterval > 250))
     {
         Serial.println("Button touched!");
 
-        if (!ButtonLED)
+        if (!BtnState_LED1)
         {
-            display.fillRect(Button1.coordX, Button1.coordY, Button1.width, Button1.height, TFT_GREEN);
-            display.setCursor(Button1.coordX + 10, Button1.coordY + 10);
+            display.fillRect(ButtonLED1.coordX, ButtonLED1.coordY, ButtonLED1.width, ButtonLED1.height, TFT_GREEN);
+            display.setCursor(ButtonLED1.coordX + 10, ButtonLED1.coordY + 10);
             display.print("LED1");
         }
         else
         {
-            display.fillRect(Button1.coordX, Button1.coordY, Button1.width, Button1.height, TFT_BLUE);
-            display.setCursor(Button1.coordX + 10, Button1.coordY + 10);
+            display.fillRect(ButtonLED1.coordX, ButtonLED1.coordY, ButtonLED1.width, ButtonLED1.height, TFT_BLUE);
+            display.setCursor(ButtonLED1.coordX + 10, ButtonLED1.coordY + 10);
             display.print("LED1");
         }
 
         for (int i = 0; i < sizeof(ledPin) / sizeof(ledPin[0]); i++)
             digitalWrite(ledPin[i], !digitalRead(ledPin[i]));
-        ButtonLED = !ButtonLED;
+        BtnState_LED1 = !BtnState_LED1;
         touchInterval = millis();
     }
 
-    if ((p.x > Button2.coordX) && (p.x < (Button2.coordX + Button2.width)) && (p.y > Button2.coordY) && (p.y <= (Button2.coordY + Button2.height)) && (millis() - touchInterval > 250))
+    if ((p.x > ButtonLED2.coordX) && (p.x < (ButtonLED2.coordX + ButtonLED2.width)) && (p.y > ButtonLED2.coordY) && (p.y <= (ButtonLED2.coordY + ButtonLED2.height)) && (millis() - touchInterval > 250))
     {
         Serial.println("Button touched!");
 
-        if (!ButtonSERVO)
+        if (!BtnState_LED2)
         {
-            display.fillRect(Button2.coordX, Button2.coordY, Button2.width, Button2.height, TFT_GREEN);
-            display.setCursor(Button2.coordX + 10, Button2.coordY + 10);
+            display.fillRect(ButtonLED2.coordX, ButtonLED2.coordY, ButtonLED2.width, ButtonLED2.height, TFT_GREEN);
+            display.setCursor(ButtonLED2.coordX + 10, ButtonLED2.coordY + 10);
+            display.print("LED2");
+        }
+        else
+        {
+            display.fillRect(ButtonLED2.coordX, ButtonLED2.coordY, ButtonLED2.width, ButtonLED2.height, TFT_BLUE);
+            display.setCursor(ButtonLED2.coordX + 10, ButtonLED2.coordY + 10);
+            display.print("LED2");
+        }
+
+        for (int i = 0; i < sizeof(ledPin) / sizeof(ledPin[0]); i++)
+            digitalWrite(ledPin[i], !digitalRead(ledPin[i]));
+        BtnState_LED2 = !BtnState_LED2;
+        touchInterval = millis();
+    }
+
+    if ((p.x > ButtonSERVO.coordX) && (p.x < (ButtonSERVO.coordX + ButtonSERVO.width)) && (p.y > ButtonSERVO.coordY) && (p.y <= (ButtonSERVO.coordY + ButtonSERVO.height)) && (millis() - touchInterval > 250))
+    {
+        Serial.println("Button touched!");
+
+        if (!BtnState_SERVO)
+        {
+            display.fillRect(ButtonSERVO.coordX, ButtonSERVO.coordY, ButtonSERVO.width, ButtonSERVO.height, TFT_GREEN);
+            display.setCursor(ButtonSERVO.coordX + 10, ButtonSERVO.coordY + 10);
             display.print("SERVO");
         }
         else
         {
-            display.fillRect(Button2.coordX, Button2.coordY, Button2.width, Button2.height, TFT_BLUE);
-            display.setCursor(Button2.coordX + 10, Button2.coordY + 10);
+            display.fillRect(ButtonSERVO.coordX, ButtonSERVO.coordY, ButtonSERVO.width, ButtonSERVO.height, TFT_BLUE);
+            display.setCursor(ButtonSERVO.coordX + 10, ButtonSERVO.coordY + 10);
             display.print("SERVO");
         }
 
         servo.write((servo.read() == -1) ? 180 : 0);
-        ButtonSERVO = !ButtonSERVO;
+        BtnState_SERVO = !BtnState_SERVO;
         touchInterval = millis();
     }
 }
