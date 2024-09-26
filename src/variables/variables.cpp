@@ -23,19 +23,6 @@ unsigned long touchInterval;
 // The interval in milliseconds that the buzzer will be active
 unsigned long alarmInterval;
 
-// The touch button states
-uint8_t BtnState_LED1 = 0;
-uint8_t BtnState_LED2 = 0;
-uint8_t BtnState_LED3 = 0;
-uint8_t BtnState_LED4 = 0;
-uint8_t BtnState_LED5 = 0;
-uint8_t BtnState_LED6 = 0;
-uint8_t BtnState_LED7 = 0;
-uint8_t BtnState_LED8 = 0;
-uint8_t BtnState_LED9 = 0;
-uint8_t BtnState_LED10 = 0;
-uint8_t BtnState_SERVO = 0;
-
 // Alarm state
 uint8_t alarmActive = 0;
 

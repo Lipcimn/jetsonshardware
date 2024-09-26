@@ -19,6 +19,7 @@ extern DisplayBT ButtonLED8;
 extern DisplayBT ButtonLED9;
 extern DisplayBT ButtonLED10;
 extern DisplayBT ButtonSERVO;
+extern DisplayBT Buttons[11];
 extern Adafruit_FT6206 ts;
 
 #endif
