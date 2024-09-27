@@ -36,7 +36,13 @@ void servoFunctionality(uint16_t milliseconds)
 void Touch()
 {
     if (!ts.touched())
+    {
+        // Reset last touched button if the user is not pressing the display so that the user can press the buttons again.
+        lastTouchedButton = DisplayBT(0, 0, 0, 0, "NULL");
+        // Reset noButtonClick if the user is not pressing the display anymore.
+        noButtonClick = false;
         return;
+    }
 
     TS_Point p = ts.getPoint();
 
@@ -57,9 +63,12 @@ void Touch()
     // Map each button and check if it was touched
     for (uint8_t i = 0; i < sizeof(Buttons) / sizeof(Buttons[0]); i++)
     {
-        if ((p.x > Buttons[i].coordX) && (p.x < (Buttons[i].coordX + Buttons[i].width)) && (p.y > Buttons[i].coordY) && (p.y <= (Buttons[i].coordY + Buttons[i].height) && (millis() - touchInterval > 250)))
+        if ((p.x > Buttons[i].coordX) && (p.x < (Buttons[i].coordX + Buttons[i].width)) && (p.y > Buttons[i].coordY) && (p.y <= (Buttons[i].coordY + Buttons[i].height)) && (millis() - touchInterval > 250) && !(lastTouchedButton == Buttons[i]) && !noButtonClick)
         {
             Serial.println("Button touched!");
+
+            // Update last touched button.
+            lastTouchedButton = DisplayBT(Buttons[i]);
 
             if (strstr(Buttons[i].label, "LED") != NULL)
                 for (int i = 0; i < sizeof(ledPin) / sizeof(ledPin[0]); i++)
@@ -71,19 +80,19 @@ void Touch()
             Buttons[i].state = !Buttons[i].state;
             touchInterval = millis();
 
-            if (Buttons[i].state)
-            {
-                display.fillRect(Buttons[i].coordX, Buttons[i].coordY, Buttons[i].width, Buttons[i].height, TFT_GREEN);
-                display.setCursor(Buttons[i].coordX + 10, Buttons[i].coordY + 10);
-                display.print(Buttons[i].label);
-                return;
-            }
-
-            display.fillRect(Buttons[i].coordX, Buttons[i].coordY, Buttons[i].width, Buttons[i].height, TFT_BLUE);
+            display.fillRect(Buttons[i].coordX, Buttons[i].coordY, Buttons[i].width, Buttons[i].height, (Buttons[i].state) ? TFT_GREEN : TFT_BLUE);
             display.setCursor(Buttons[i].coordX + 10, Buttons[i].coordY + 10);
             display.print(Buttons[i].label);
         }
     }
+
+    if ((p.x > lastTouchedButton.coordX) && (p.x < (lastTouchedButton.coordX + lastTouchedButton.width)) && (p.y > lastTouchedButton.coordY) && (p.y <= (lastTouchedButton.coordY + lastTouchedButton.height)) && !(lastTouchedButton == DisplayBT(0, 0, 0, 0, "NULL")))
+    {
+        noButtonClick = false;
+        return;
+    }
+
+    noButtonClick = true;
 }
 
 void Alarm(uint16_t milliseconds)

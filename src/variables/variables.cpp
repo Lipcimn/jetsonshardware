@@ -28,3 +28,6 @@ uint8_t alarmActive = 0;
 
 // Touch coordinate variables:
 uint16_t x = 0, y = 0;
+
+// Check if the user didn't press any button or is currently pressing the display but not the button.
+bool noButtonClick = false;

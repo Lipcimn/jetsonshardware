@@ -23,6 +23,7 @@ extern uint8_t BtnState_LED9;
 extern uint8_t BtnState_LED10;
 extern uint8_t BtnState_SERVO;
 extern uint8_t alarmActive;
+extern bool noButtonClick;
 extern uint16_t x;
 extern uint16_t y;
 

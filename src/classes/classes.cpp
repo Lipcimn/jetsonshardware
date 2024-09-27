@@ -14,4 +14,5 @@ DisplayBT ButtonLED9(5, 125, 50, 50, "LED9");
 DisplayBT ButtonLED10(65, 125, 50, 50, "LED10");
 DisplayBT ButtonSERVO(5, 185, 50, 50, "SERVO");
 DisplayBT Buttons[11] = {ButtonLED1, ButtonLED2, ButtonLED3, ButtonLED4, ButtonLED5, ButtonLED6, ButtonLED7, ButtonLED8, ButtonLED9, ButtonLED10, ButtonSERVO};
+DisplayBT lastTouchedButton(0, 0, 0, 0, "NULL"); // This instance is used to negate the effect of the user pressing the same button indefinitely.
 Adafruit_FT6206 ts = Adafruit_FT6206();
