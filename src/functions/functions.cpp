@@ -71,8 +71,7 @@ void Touch()
             lastTouchedButton = DisplayBT(Buttons[i]);
 
             if (strstr(Buttons[i].label, "LED") != NULL)
-                for (int i = 0; i < sizeof(ledPin) / sizeof(ledPin[0]); i++)
-                    digitalWrite(ledPin[i], !digitalRead(ledPin[i]));
+                digitalWrite(ledPin[i], !digitalRead(ledPin[i]));
 
             if (strstr(Buttons[i].label, "SERVO") != NULL)
                 servo.write((servo.read() == -1) ? 180 : 0);

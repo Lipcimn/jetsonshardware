@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-extern const uint8_t ledPin[4];
+extern const uint8_t ledPin[10];
 extern const uint8_t pirPin;
 extern const uint8_t servoPin;
 extern const uint8_t buzzerPin;

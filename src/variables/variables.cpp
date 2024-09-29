@@ -6,7 +6,7 @@
  * 13 -> Servo
  */
 
-extern const uint8_t ledPin[4] = {10, 11, 12, 17};
+extern const uint8_t ledPin[10] = {17, 34, 35, 32, 33, 25, 26, 27, 12, 13};
 extern const uint8_t pirPin = 16;
 extern const uint8_t servoPin = 14;
 extern const uint8_t buzzerPin = 5;
