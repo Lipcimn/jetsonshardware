@@ -7,7 +7,7 @@
  */
 void projectSetup()
 {
-    Serial.begin(9600);
+    Serial.begin(115200);
 
     servo.attach(servoPin);
     servo.write(0);
@@ -20,6 +20,10 @@ void projectSetup()
 
     display.begin();
     display.setRotation(0);
+
+    uint16_t calibrationData[5] = { 519, 3062, 331, 3284, 2 };
+    display.setTouch(calibrationData);
+
     display.fillScreen(TFT_BLACK);
     display.setTextSize(1);
     display.setTextColor(TFT_WHITE);
@@ -30,13 +34,6 @@ void projectSetup()
         display.fillRect(Buttons[i].coordX, Buttons[i].coordY, Buttons[i].width, Buttons[i].height, TFT_BLUE);
         display.setCursor(Buttons[i].coordX + 10, Buttons[i].coordY + 10);
         display.print(Buttons[i].label);
-    }
-
-    if (!ts.begin(40))
-    { // pass in 'sensitivity' coefficient
-        Serial.println("Couldn't start FT6206 touchscreen controller");
-        while (1)
-            ;
     }
 
     Serial.println("Capacitive touchscreen started");

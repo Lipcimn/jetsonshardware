@@ -35,7 +35,7 @@ void servoFunctionality(uint16_t milliseconds)
  */
 void Touch()
 {
-    if (!ts.touched())
+    if (!display.getTouch(&x, &y))
     {
         // Reset last touched button if the user is not pressing the display so that the user can press the buttons again.
         lastTouchedButton = DisplayBT(0, 0, 0, 0, "NULL");
@@ -44,26 +44,19 @@ void Touch()
         return;
     }
 
-    TS_Point p = ts.getPoint();
-
     Serial.print("X = ");
-    Serial.print(p.x);
+    Serial.print(x);
     Serial.print("\tY = ");
-    Serial.print(p.y);
+    Serial.print(y);
     Serial.print(" -> ");
 
-    p.x = map(p.x, 0, 240, 240, 0);
-    p.y = map(p.y, 0, 320, 320, 0);
-
-    Serial.print("(");
-    Serial.print(p.x);
-    Serial.print(", ");
-    Serial.println(p.y);
+    /* x = map(p.x, 0, 240, 240, 0);
+    y = map(p.y, 0, 320, 320, 0); */
 
     // Map each button and check if it was touched
     for (uint8_t i = 0; i < sizeof(Buttons) / sizeof(Buttons[0]); i++)
     {
-        if ((p.x > Buttons[i].coordX) && (p.x < (Buttons[i].coordX + Buttons[i].width)) && (p.y > Buttons[i].coordY) && (p.y <= (Buttons[i].coordY + Buttons[i].height)) && (millis() - touchInterval > 250) && !(lastTouchedButton == Buttons[i]) && !noButtonClick)
+        if ((x > Buttons[i].coordX) && (x < (Buttons[i].coordX + Buttons[i].width)) && (y > Buttons[i].coordY) && (y <= (Buttons[i].coordY + Buttons[i].height)) && (millis() - touchInterval > 250) && !(lastTouchedButton == Buttons[i]) && !noButtonClick)
         {
             Serial.println("Button touched!");
 
@@ -85,7 +78,7 @@ void Touch()
         }
     }
 
-    if ((p.x > lastTouchedButton.coordX) && (p.x < (lastTouchedButton.coordX + lastTouchedButton.width)) && (p.y > lastTouchedButton.coordY) && (p.y <= (lastTouchedButton.coordY + lastTouchedButton.height)) && !(lastTouchedButton == DisplayBT(0, 0, 0, 0, "NULL")))
+    if ((x > lastTouchedButton.coordX) && (x < (lastTouchedButton.coordX + lastTouchedButton.width)) && (y > lastTouchedButton.coordY) && (y <= (lastTouchedButton.coordY + lastTouchedButton.height)) && !(lastTouchedButton == DisplayBT(0, 0, 0, 0, "NULL")))
     {
         noButtonClick = false;
         return;
