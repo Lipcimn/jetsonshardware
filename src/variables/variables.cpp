@@ -6,10 +6,15 @@
  * 13 -> Servo
  */
 
-extern const uint8_t ledPin[10] = {17, 34, 35, 32, 33, 25, 26, 27, 12, 13};
-extern const uint8_t pirPin = 16;
-extern const uint8_t servoPin = 14;
-extern const uint8_t buzzerPin = 5;
+extern const uint8_t ledPin[6] = {17, 32, 33, 25, 26, 27};
+extern const uint8_t pirPin = 12;
+extern const uint8_t servoPin = 13;
+extern const uint8_t buzzerPin = 16;
+
+extern const uint8_t dhtPin = 14;
+
+uint16_t temperature;
+uint16_t humidity;
 
 // The time in milliseconds that the LEDs will be on (for manual tests)
 unsigned long ledInterval;
@@ -22,6 +27,9 @@ unsigned long touchInterval;
 
 // The interval in milliseconds that the buzzer will be active
 unsigned long alarmInterval;
+
+// The interval in milliseconds that the DHT will check the temperature and humidity values
+unsigned long dhtInterval;
 
 // Alarm state
 uint8_t alarmActive = 0;

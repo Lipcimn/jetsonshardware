@@ -6,7 +6,8 @@
 
 extern void ledFunctionality(uint16_t milliseconds);
 extern void servoFunctionality(uint16_t milliseconds);
-extern void Touch();
-extern void Alarm(uint16_t milliseconds);
+extern void touch();
+extern void alarm(uint16_t milliseconds);
+extern void temperatureAndHumidity(uint16_t milliseconds);
 
 #endif

@@ -14,6 +14,7 @@ void projectSetup()
 
     pinMode(pirPin, INPUT);
     pinMode(buzzerPin, OUTPUT);
+    pinMode(dhtPin, OUTPUT);
 
     for (int i = 0; i < sizeof(ledPin) / sizeof(ledPin[0]); i++)
         pinMode(ledPin[i], OUTPUT);
@@ -21,7 +22,7 @@ void projectSetup()
     display.begin();
     display.setRotation(0);
 
-    uint16_t calibrationData[5] = { 519, 3062, 331, 3284, 2 };
+    uint16_t calibrationData[5] = {519, 3062, 331, 3284, 2};
     display.setTouch(calibrationData);
 
     display.fillScreen(TFT_BLACK);
@@ -38,8 +39,11 @@ void projectSetup()
 
     Serial.println("Capacitive touchscreen started");
 
+    dht.begin();
+
     ledInterval = millis();
     servoInterval = millis();
     touchInterval = millis();
     alarmInterval = millis();
+    dhtInterval = millis();
 }

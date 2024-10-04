@@ -33,7 +33,7 @@ void servoFunctionality(uint16_t milliseconds)
 /**
  * Checks if the display has been touched and updates the display and other functionalities.
  */
-void Touch()
+void touch()
 {
     if (!display.getTouch(&x, &y))
     {
@@ -87,7 +87,7 @@ void Touch()
     noButtonClick = true;
 }
 
-void Alarm(uint16_t milliseconds)
+void alarm(uint16_t milliseconds)
 {
     digitalWrite(buzzerPin, (alarmActive) ? HIGH : LOW);
 
@@ -99,4 +99,26 @@ void Alarm(uint16_t milliseconds)
 
     if (!alarmActive)
         alarmActive = 1, alarmInterval = millis();
+}
+
+/**
+ * Checks the DHT11 humidity and temperature values
+ */
+void temperatureAndHumidity(uint16_t milliseconds)
+{
+    if (millis() - dhtInterval <= milliseconds)
+        return;
+
+    temperature = dht.readTemperature();
+    humidity = dht.readHumidity();
+
+    Serial.print("Temperatura: ");
+    Serial.print(temperature);
+    Serial.println(" °C");
+
+    Serial.print("Humidade: ");
+    Serial.print(humidity);
+    Serial.println(" %");
+
+    dhtInterval = millis();
 }
