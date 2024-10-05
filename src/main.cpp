@@ -1,28 +1,20 @@
-#include <Arduino.h>
-#include "pins/pins.h"
+#include "variables/variables.h"
 #include "functions/functions.h"
 #include "classes/classes.h"
+#include "setup/setup.h"
 
-#include <TFT_eSPI.h>
+#include <stdint.h>
 
 void setup()
 {
-  servo.attach(servoPin);
-
-  pinMode(proximitySensor, INPUT);
-  for (int i = 0; i < 4; i++)
-    pinMode(led[i], OUTPUT);
-
-  tft.init();
-  tft.setRotation(3);
-  tft.fillScreen(TFT_BLACK);
-  tft.setTextSize(1);
-  tft.setTextColor(TFT_WHITE);
-  tft.setCursor(0, 0);
+  projectSetup();
 }
 
 void loop()
 {
-  ledFunctionality(500);
-  servoFunctionality(5000);
+  touch();
+  alarm((uint16_t)10000);
+  temperatureAndHumidity((uint16_t)1000);
+  // ledFunctionality((uint16_t)1000);
+  // servoFunctionality((uint16_t)1000);
 }

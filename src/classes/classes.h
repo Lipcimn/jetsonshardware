@@ -1,12 +1,29 @@
 #ifndef CLASSES_H
 #define CLASSES_H
 
-#include <Servo.h>
+#include <ESP32Servo.h>
 #include <TFT_eSPI.h>
 #include "DisplayBT/DisplayBT.h"
+#include <Adafruit_FT6206.h>
+#include <DHT.h>
+#include <DHT_U.h>
+
+#include "variables/variables.h"
 
 extern Servo servo;
-extern TFT_eSPI tft;
-extern DisplayBT Button1(0, 0, 320, 240);
+extern TFT_eSPI display;
+extern DisplayBT ButtonLED1;
+extern DisplayBT ButtonLED2;
+extern DisplayBT ButtonLED3;
+extern DisplayBT ButtonLED4;
+extern DisplayBT ButtonLED5;
+extern DisplayBT ButtonLED6;
+extern DisplayBT ButtonLED7;
+extern DisplayBT ButtonLED8;
+extern DisplayBT ButtonSERVO;
+extern DisplayBT Buttons[7];
+extern DisplayBT lastTouchedButton;
+extern Adafruit_FT6206 ts;
+extern DHT dht;
 
 #endif
