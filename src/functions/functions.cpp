@@ -120,5 +120,29 @@ void temperatureAndHumidity(uint16_t milliseconds)
     Serial.print(humidity);
     Serial.println(" %");
 
+    if (currentHumidity != humidity)
+    {
+        display.setCursor(5, 250);
+        display.fillRect(5, 250, 180, 8, TFT_BLACK);
+
+        display.print("Umidade: ");
+        display.print(humidity);
+        display.println("%");
+
+        currentHumidity = humidity;
+    }
+
+    if (currentTemperature != temperature)
+    {
+        display.setCursor(5.5, 260);
+        display.fillRect(5.5, 260, 180, 8, TFT_BLACK);
+
+        display.print("Temperatura: ");
+        display.print(temperature);
+        display.println(" C");
+
+        currentTemperature = temperature;
+    }
+
     dhtInterval = millis();
 }
