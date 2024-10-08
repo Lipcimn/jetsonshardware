@@ -4,6 +4,7 @@
 #include <ESP32Servo.h>
 #include <TFT_eSPI.h>
 #include "DisplayBT/DisplayBT.h"
+#include "DisplayLabel/DisplayLabel.h"
 #include <Adafruit_FT6206.h>
 #include <DHT.h>
 #include <DHT_U.h>
@@ -25,5 +26,7 @@ extern DisplayBT Buttons[7];
 extern DisplayBT lastTouchedButton;
 extern Adafruit_FT6206 ts;
 extern DHT dht;
+extern DisplayLabel tempLabel;
+extern DisplayLabel humidLabel;
 
 #endif

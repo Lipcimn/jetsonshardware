@@ -41,6 +41,20 @@ void projectSetup()
 
     dht.begin();
 
+    // Check for temperature and humidity initial values
+    display.setCursor(humidLabel.coordX, humidLabel.coordY);
+
+    display.print("Umidade: ");
+    display.println("Checking...");
+
+    display.setCursor(tempLabel.coordX, tempLabel.coordY);
+
+    display.print("Temperatura: ");
+    display.print("Checking...");
+
+    currentTemperature = temperature;
+    currentHumidity = humidity;
+
     ledInterval = millis();
     servoInterval = millis();
     touchInterval = millis();

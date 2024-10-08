@@ -16,6 +16,9 @@ extern const uint8_t dhtPin = 14;
 uint16_t temperature;
 uint16_t humidity;
 
+uint16_t currentTemperature;
+uint16_t currentHumidity;
+
 // The time in milliseconds that the LEDs will be on (for manual tests)
 unsigned long ledInterval;
 
