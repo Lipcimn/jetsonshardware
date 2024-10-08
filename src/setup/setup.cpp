@@ -42,15 +42,12 @@ void projectSetup()
     dht.begin();
 
     // Check for temperature and humidity initial values
-
-    display.setCursor(5, 250);
-    display.fillRect(5, 250, 110, 8, TFT_BLACK);
+    display.setCursor(humidLabel.coordX, humidLabel.coordY);
 
     display.print("Umidade: ");
     display.println("Checking...");
 
-    display.setCursor(5.5, 260);
-    display.fillRect(5.5, 260, 110, 8, TFT_BLACK);
+    display.setCursor(tempLabel.coordX, tempLabel.coordY);
 
     display.print("Temperatura: ");
     display.print("Checking...");
