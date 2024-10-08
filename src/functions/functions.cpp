@@ -123,7 +123,7 @@ void temperatureAndHumidity(uint16_t milliseconds)
     if (currentHumidity != humidity)
     {
         display.setCursor(humidLabel.coordX, humidLabel.coordY);
-        display.fillRect(humidLabel.coordX, 250, humidLabel.width, humidLabel.height, humidLabel.color);
+        display.fillRect(humidLabel.coordX, humidLabel.coordY, humidLabel.width, humidLabel.height, humidLabel.color);
 
         display.print("Umidade: ");
         display.print(humidity);
