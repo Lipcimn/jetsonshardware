@@ -8,9 +8,9 @@
  */
 DisplayLabel::DisplayLabel(unsigned int x, unsigned int y, uint16_t w, uint16_t h, uint32_t c)
 {
-    coordX = x;
-    coordY = y;
-    width = w;
-    height = h;
-    color = c;
+    this->coordX = x;
+    this->coordY = y;
+    this->width = w;
+    this->height = h;
+    this->color = c;
 }

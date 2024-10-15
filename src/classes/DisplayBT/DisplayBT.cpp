@@ -8,11 +8,11 @@
  */
 DisplayBT::DisplayBT(unsigned int x, unsigned int y, uint8_t w, uint8_t h, const char *l)
 {
-    coordX = x;
-    coordY = y;
-    width = w;
-    height = h;
-    label = l;
+    this->coordX = x;
+    this->coordY = y;
+    this->width = w;
+    this->height = h;
+    this->label = l;
 }
 
 /** Operator == for DisplayBT class.
