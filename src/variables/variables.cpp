@@ -7,9 +7,9 @@
  */
 
 extern const uint8_t ledPin[6] = {17, 32, 33, 25, 26, 27};
-extern const uint8_t pirPin = 12;
+extern const uint8_t pirPin = 35;
 extern const uint8_t servoPin = 13;
-extern const uint8_t buzzerPin = 16;
+extern const uint8_t buzzerPin = 22;
 
 extern const uint8_t dhtPin = 14;
 
