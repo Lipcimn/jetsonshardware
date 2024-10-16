@@ -20,13 +20,13 @@ void projectSetup()
         pinMode(ledPin[i], OUTPUT);
 
     display.begin();
-    display.setRotation(0);
+    display.setRotation(1);
 
-    uint16_t calibrationData[5] = {519, 3062, 331, 3284, 2};
+    uint16_t calibrationData[5] = {323, 3250, 417, 3101, 1};
     display.setTouch(calibrationData);
 
     display.fillScreen(TFT_BLACK);
-    display.setTextSize(1);
+    display.setTextSize(2);
     display.setTextColor(TFT_WHITE);
 
     for (uint8_t i = 0; i < sizeof(Buttons) / sizeof(Buttons[0]); i++)
