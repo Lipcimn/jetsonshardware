@@ -10,8 +10,9 @@ DisplayBT ButtonLED3(145, 5, 60, 60, "LED3");
 DisplayBT ButtonLED4(5, 75, 60, 60, "LED4");
 DisplayBT ButtonLED5(75, 75, 60, 60, "LED5");
 DisplayBT ButtonLED6(145, 75, 60, 60, "LED6");
-DisplayBT ButtonSERVO(240, 40, 60, 60, "SERVO");
-DisplayBT Buttons[7] = {ButtonLED1, ButtonLED2, ButtonLED3, ButtonLED4, ButtonLED5, ButtonLED6, ButtonSERVO};
+DisplayBT ButtonSERVO(240, 5, 60, 60, "SERVO");
+DisplayBT ButtonALARM (240, 75, 60, 60, "ALARM");
+DisplayBT Buttons[8] = {ButtonLED1, ButtonLED2, ButtonLED3, ButtonLED4, ButtonLED5, ButtonLED6, ButtonSERVO, ButtonALARM};
 
 DisplayBT lastTouchedButton(0, 0, 0, 0, "NULL"); // This instance is used to negate the effect of the user pressing the same button indefinitely.
 

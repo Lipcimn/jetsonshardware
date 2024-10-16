@@ -22,7 +22,7 @@ extern DisplayBT ButtonLED6;
 extern DisplayBT ButtonLED7;
 extern DisplayBT ButtonLED8;
 extern DisplayBT ButtonSERVO;
-extern DisplayBT Buttons[7];
+extern DisplayBT Buttons[8];
 extern DisplayBT lastTouchedButton;
 extern Adafruit_FT6206 ts;
 extern DHT dht;
