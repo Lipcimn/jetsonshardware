@@ -89,7 +89,7 @@ void touch()
 
 void alarm(uint16_t milliseconds)
 {
-    digitalWrite(buzzerPin, (alarmActive) ? HIGH : LOW);
+    alarmActive ? tone(buzzerPin, 1000) : noTone(buzzerPin);
 
     if (alarmActive && millis() - alarmInterval >= milliseconds) // Checks for alarm variable state
         alarmActive = 0;
@@ -123,7 +123,7 @@ void temperatureAndHumidity(uint16_t milliseconds)
     /*
      * Checks if current last values differs from updated temperature and humidity values
      * This prevents having to update the values on the display all the time
-    */
+     */
     if (currentHumidity != humidity)
     {
         display.setCursor(humidLabel.coordX, humidLabel.coordY);
