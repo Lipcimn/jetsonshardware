@@ -120,6 +120,10 @@ void temperatureAndHumidity(uint16_t milliseconds)
     Serial.print(humidity);
     Serial.println(" %");
 
+    /*
+     * Checks if current last values differs from updated temperature and humidity values
+     * This prevents having to update the values on the display all the time
+    */
     if (currentHumidity != humidity)
     {
         display.setCursor(humidLabel.coordX, humidLabel.coordY);
