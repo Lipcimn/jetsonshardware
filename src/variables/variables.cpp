@@ -37,6 +37,12 @@ unsigned long dhtInterval;
 // Alarm state
 uint8_t alarmActive = 0;
 
+/*
+ * Bool variable to check if the alarm is active in the display button
+   ```true```: alarm functionality is active
+*/
+bool alarmToogle = false;
+
 // Touch coordinate variables:
 uint16_t x = 0, y = 0;
 
