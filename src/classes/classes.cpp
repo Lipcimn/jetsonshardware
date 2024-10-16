@@ -19,5 +19,5 @@ Adafruit_FT6206 ts = Adafruit_FT6206();
 
 DHT dht(dhtPin, DHT11);
 
-DisplayLabel tempLabel(5, 260, 180, 8, TFT_BLACK);
-DisplayLabel humidLabel(5.5, 250, 180, 8, TFT_BLACK);
+DisplayLabel tempLabel(5, 165, 300, 16, TFT_BLACK);
+DisplayLabel humidLabel(5.5, 185, 300, 16, TFT_BLACK);
