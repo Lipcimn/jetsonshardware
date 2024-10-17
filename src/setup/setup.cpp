@@ -55,8 +55,6 @@ void projectSetup()
     currentTemperature = temperature;
     currentHumidity = humidity;
 
-    ledInterval = millis();
-    servoInterval = millis();
     touchInterval = millis();
     alarmInterval = millis();
     dhtInterval = millis();
