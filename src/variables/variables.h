@@ -14,8 +14,6 @@ extern uint16_t humidity;
 extern uint16_t currentTemperature;
 extern uint16_t currentHumidity;
 
-extern unsigned long ledInterval;
-extern unsigned long servoInterval;
 extern unsigned long touchInterval;
 extern unsigned long alarmInterval;
 extern unsigned long dhtInterval;

@@ -15,6 +15,4 @@ void loop()
   touch();
   alarm((uint16_t)10000);
   temperatureAndHumidity((uint16_t)1000);
-  // ledFunctionality((uint16_t)1000);
-  // servoFunctionality((uint16_t)1000);
 }

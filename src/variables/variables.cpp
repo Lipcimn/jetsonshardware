@@ -19,12 +19,6 @@ uint16_t humidity;
 uint16_t currentTemperature;
 uint16_t currentHumidity;
 
-// The time in milliseconds that the LEDs will be on (for manual tests)
-unsigned long ledInterval;
-
-// The time in milliseconds that the Servo will be on (for manual tests)
-unsigned long servoInterval;
-
 // The interval in milliseconds that the user can press the touch button
 unsigned long touchInterval;
 

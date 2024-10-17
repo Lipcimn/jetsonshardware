@@ -2,35 +2,6 @@
 #include "classes/classes.h"
 
 /**
- * Function that controls the LEDs
- * @param milliseconds: The time in milliseconds that the LEDs will be on
- */
-void ledFunctionality(uint16_t milliseconds)
-{
-    if (millis() - ledInterval != milliseconds)
-        return;
-
-    for (int i = 0; i < sizeof(ledPin) / sizeof(ledPin[0]); i++)
-        digitalWrite(ledPin[i], !digitalRead(ledPin[i]));
-
-    ledInterval = millis();
-}
-
-/**
- * Function that controls the Servo
- * @param milliseconds: The time in milliseconds that the Servo will be on
- */
-void servoFunctionality(uint16_t milliseconds)
-{
-    if (millis() - servoInterval != milliseconds)
-        return;
-
-    servo.write((servo.read() == -1) ? 180 : 0);
-
-    servoInterval = millis();
-}
-
-/**
  * Checks if the display has been touched and updates the display and other functionalities.
  */
 void touch()
