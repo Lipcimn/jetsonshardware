@@ -21,7 +21,6 @@ extern unsigned long alarmInterval;
 extern unsigned long dhtInterval;
 
 extern uint8_t alarmActive;
-extern bool alarmToogle;
 
 extern bool noButtonClick;
 
