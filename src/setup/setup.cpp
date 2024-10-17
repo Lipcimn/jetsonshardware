@@ -33,7 +33,7 @@ void projectSetup()
     {
         display.drawRect(Buttons[i].coordX, Buttons[i].coordY, Buttons[i].width, Buttons[i].height, TFT_WHITE);
         display.fillRect(Buttons[i].coordX, Buttons[i].coordY, Buttons[i].width, Buttons[i].height, TFT_BLUE);
-        display.setCursor(Buttons[i].coordX + 10, Buttons[i].coordY + 10);
+        display.setCursor(Buttons[i].coordX, Buttons[i].coordY + 10);
         display.print(Buttons[i].label);
     }
 
