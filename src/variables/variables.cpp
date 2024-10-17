@@ -1,9 +1,20 @@
 #include <stdint.h>
 
 /* Pins Definition:
- * 1, 2, 3, 4 -> LEDs
- * 12 -> Proximity Sensor
- * 13 -> Servo
+ * GPIO: 17, 32, 33, 25, 26, 27 -> LEDs
+ * GPIO  35 -> Proximity Sensor
+ * GPIO  13 -> Servo
+ * GPIO  22 -> Buzzer
+ * GPIO  14 -> DHT11
+ *
+ * Pins declared in TFT_eSPI's User_Setup.h:
+ * GPIO  19 -> TFT_MISO / TOUCH_DO (T_DO)
+ * GPIO  23 -> TFT_MOSI / TOUCH_DIN (T_DIN)
+ * GPIO  18 -> TFT_SCLK / TOUCH_CLK (T_CLK)
+ * GPIO  15 -> TFT_CS
+ * GPIO  2 -> TFT_DC
+ * GPIO  4 -> TFT_RST
+ * GPIO  21 -> TOUCH_CS (T_CS)
  */
 
 extern const uint8_t ledPin[6] = {17, 32, 33, 25, 26, 27};
