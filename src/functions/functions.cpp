@@ -69,9 +69,6 @@ void touch()
             if (strstr(Buttons[i].label, "SERVO") != NULL)
                 servo.write((servo.read() == -1) ? 180 : 0);
 
-            if (strstr(Buttons[i].label, "ALARM") != NULL)
-                alarmToogle = !alarmToogle;
-
             Buttons[i].state = !Buttons[i].state;
             touchInterval = millis();
 
@@ -92,7 +89,8 @@ void touch()
 
 void alarm(uint16_t milliseconds)
 {
-    if (!alarmToogle) {
+    // Check ALARM button state
+    if (!Buttons[7].state) {
         noTone(buzzerPin);
         return;
     }
