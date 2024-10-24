@@ -16,8 +16,6 @@ DisplayBT Buttons[8] = {ButtonLED1, ButtonLED2, ButtonLED3, ButtonLED4, ButtonLE
 
 DisplayBT lastTouchedButton(0, 0, 0, 0, "NULL"); // This instance is used to negate the effect of the user pressing the same button indefinitely.
 
-Adafruit_FT6206 ts = Adafruit_FT6206();
-
 DHT dht(dhtPin, DHT11);
 
 DisplayLabel tempLabel(5, 165, 300, 16, TFT_BLACK);

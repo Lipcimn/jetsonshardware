@@ -24,7 +24,6 @@ extern DisplayBT ButtonLED8;
 extern DisplayBT ButtonSERVO;
 extern DisplayBT Buttons[8];
 extern DisplayBT lastTouchedButton;
-extern Adafruit_FT6206 ts;
 extern DHT dht;
 extern DisplayLabel tempLabel;
 extern DisplayLabel humidLabel;
