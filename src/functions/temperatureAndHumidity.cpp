@@ -16,7 +16,7 @@ void temperatureAndHumidity(uint16_t milliseconds)
     Serial.print(temperature);
     Serial.println(" °C");
 
-    Serial.print("Humidade: ");
+    Serial.print("Umidade: ");
     Serial.print(humidity);
     Serial.println(" %");
 
