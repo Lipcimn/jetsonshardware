@@ -3,7 +3,7 @@
 #include "variables/variables.h"
 
 /**
- * Initializes the project setup()
+ * Inicializa o setup do projeto | Initializes the project setup
  */
 void projectSetup()
 {
@@ -41,7 +41,7 @@ void projectSetup()
 
     dht.begin();
 
-    // Check for temperature and humidity initial values
+    // Verifica os valores iniciais de temperatura e umidade | Check for temperature and humidity initial values
     display.setCursor(humidLabel.coordX, humidLabel.coordY);
 
     display.print("Umidade: ");
