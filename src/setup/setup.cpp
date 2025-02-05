@@ -55,6 +55,11 @@ void projectSetup()
     currentTemperature = temperature;
     currentHumidity = humidity;
 
+    display.setCursor(duduLabel.coordX, duduLabel.coordY);
+    display.print("Eduardo Guimaraes | 185698");
+    display.setCursor(manuLabel.coordX, manuLabel.coordY);
+    display.print("Manoela Alvares | 190565");
+
     touchInterval = millis();
     alarmInterval = millis();
     dhtInterval = millis();
