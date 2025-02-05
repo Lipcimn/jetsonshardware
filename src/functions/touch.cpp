@@ -34,10 +34,10 @@ void touch()
             // Atualiza qual foi o último botão pressionado | Update last touched button.
             lastTouchedButton = DisplayBT(Buttons[i]);
 
-            if (strstr(Buttons[i].label, "LED") != NULL)
+            if (strstr(Buttons[i].label, "COZNH") != NULL || strstr(Buttons[i].label, "JANTA") != NULL || strstr(Buttons[i].label, "ESCRI") != NULL || strstr(Buttons[i].label, "SALA") != NULL || strstr(Buttons[i].label, "BANHO") != NULL || strstr(Buttons[i].label, "GARAG") != NULL)
                 digitalWrite(ledPin[i], !digitalRead(ledPin[i]));
 
-            if (strstr(Buttons[i].label, "SERVO") != NULL)
+            if (strstr(Buttons[i].label, "PORTA") != NULL)
                 servo.write((servo.read() == -1) ? 180 : 0);
 
             Buttons[i].state = !Buttons[i].state;
