@@ -27,5 +27,7 @@ extern DisplayBT lastTouchedButton;
 extern DHT dht;
 extern DisplayLabel tempLabel;
 extern DisplayLabel humidLabel;
+extern DisplayLabel duduLabel;
+extern DisplayLabel manuLabel;
 
 #endif

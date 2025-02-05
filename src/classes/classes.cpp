@@ -18,5 +18,9 @@ DisplayBT lastTouchedButton(0, 0, 0, 0, "NULL"); // Essa instância é usada par
 
 DHT dht(dhtPin, DHT11);
 
-DisplayLabel tempLabel(5, 165, 300, 16, TFT_BLACK);
-DisplayLabel humidLabel(5.5, 185, 300, 16, TFT_BLACK);
+DisplayLabel tempLabel(5, 135, 300, 16, TFT_BLACK);
+DisplayLabel humidLabel(5.5, 155, 300, 16, TFT_BLACK);
+
+// Caixa de label dos autores | Authors label box
+DisplayLabel duduLabel(5, 180, 300, 16, TFT_BLACK);
+DisplayLabel manuLabel(5.5, 200, 300, 16, TFT_BLACK);
