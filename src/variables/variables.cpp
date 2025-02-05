@@ -24,11 +24,11 @@ extern const uint8_t buzzerPin = 22;
 
 extern const uint8_t dhtPin = 14;
 
-uint16_t temperature;
-uint16_t humidity;
+int16_t temperature;
+int16_t humidity;
 
-uint16_t currentTemperature;
-uint16_t currentHumidity;
+int16_t currentTemperature;
+int16_t currentHumidity;
 
 // O intervalo em milissegundos em que o usuário pode apertar o botão | The interval in milliseconds that the user can press the touch button
 unsigned long touchInterval;
