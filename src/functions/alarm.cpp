@@ -12,7 +12,7 @@ void alarm(uint16_t milliseconds)
 
     alarmActive ? tone(buzzerPin, 1000) : noTone(buzzerPin);
 
-    if (alarmActive && millis() - alarmInterval >= milliseconds) // Verifica o estado da variável do alarme | Checks for alarm variable state
+    if (alarmActive && millis() - alarmInterval >= milliseconds) // Verifica o estado da variável do alarme e se o tempo do alarme acabou | Checks for alarm variable state and if the alarm time has ended
         alarmActive = 0;
 
     if (digitalRead(pirPin) == LOW) // Retorna se o sensor PIR não estiver ativado | Return if PIR Sensor is not activated
