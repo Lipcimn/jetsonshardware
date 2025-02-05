@@ -2,7 +2,7 @@
 #include "classes/classes.h"
 
 /**
- * Checks the DHT11 humidity and temperature values
+ * Checa os valores de temperatura e umidade do DHT11 | Checks the DHT11 humidity and temperature values
  */
 void temperatureAndHumidity(uint16_t milliseconds)
 {
@@ -21,6 +21,9 @@ void temperatureAndHumidity(uint16_t milliseconds)
     Serial.println(" %");
 
     /*
+     * Checa se os último valores armazenados diferem do valor atuais de temperatura e umidade.
+     * Isso previne o fato de ter que atualizar o display com os valores sem parar
+     *
      * Checks if current last values differs from updated temperature and humidity values
      * This prevents having to update the values on the display all the time
      */
