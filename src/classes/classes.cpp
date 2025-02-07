@@ -16,7 +16,10 @@ DisplayBT Buttons[8] = {ButtonLED1, ButtonLED2, ButtonLED3, ButtonLED4, ButtonLE
 
 DisplayBT lastTouchedButton(0, 0, 0, 0, "NULL"); // Essa instância é usada para negar o efeito do usuário pressionar o mesmo botão indefinidamente |This instance is used to negate the effect of the user pressing the same button indefinitely.
 
-DHT dht(dhtPin, DHT11);
+/**
+ * Aviso: DHT11 está sendo identificado como DHT22 | Warning: DHT11 is being identified as DHT22
+ */
+DHT dht(dhtPin, DHT22);
 
 DisplayLabel tempLabel(5, 135, 300, 16, TFT_BLACK);
 DisplayLabel humidLabel(5.5, 155, 300, 16, TFT_BLACK);
