@@ -13,6 +13,6 @@ void setup()
 void loop()
 {
   touch();
-  alarm((uint16_t)10000);
-  temperatureAndHumidity((uint16_t)1000);
+  alarm((uint16_t)8000);
+  temperatureAndHumidity((uint16_t)2000);
 }
