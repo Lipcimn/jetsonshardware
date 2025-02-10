@@ -19,16 +19,19 @@
 
 extern const uint8_t ledPin[6] = {17, 32, 33, 25, 26, 27};
 extern const uint8_t pirPin = 35;
+
 extern const uint8_t servoPin = 13;
+
 extern const uint8_t buzzerPin = 22;
+extern const uint8_t buzzerChannel = 2; // Channel specific for the buzzer for its own timer | Canal específico para o buzzer para seu próprio timer
 
 extern const uint8_t dhtPin = 14;
 
-uint16_t temperature;
-uint16_t humidity;
+float temperature;
+float humidity;
 
-uint16_t currentTemperature;
-uint16_t currentHumidity;
+float currentTemperature;
+float currentHumidity;
 
 // O intervalo em milissegundos em que o usuário pode apertar o botão | The interval in milliseconds that the user can press the touch button
 unsigned long touchInterval;

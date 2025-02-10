@@ -6,7 +6,9 @@
 extern const uint8_t ledPin[6];
 extern const uint8_t pirPin;
 extern const uint8_t servoPin;
+
 extern const uint8_t buzzerPin;
+extern const uint8_t buzzerChannel;
 
 extern const uint8_t dhtPin;
 extern uint16_t temperature;

@@ -16,6 +16,9 @@ void projectSetup()
     pinMode(buzzerPin, OUTPUT);
     pinMode(dhtPin, OUTPUT);
 
+    ledcAttachPin(buzzerPin, buzzerChannel);
+    ledcSetup(buzzerChannel, 1000, 8);
+
     for (int i = 0; i < sizeof(ledPin) / sizeof(ledPin[0]); i++)
         pinMode(ledPin[i], OUTPUT);
 
@@ -54,6 +57,11 @@ void projectSetup()
 
     currentTemperature = temperature;
     currentHumidity = humidity;
+
+    display.setCursor(duduLabel.coordX, duduLabel.coordY);
+    display.print("Eduardo Guimaraes | 185698");
+    display.setCursor(manuLabel.coordX, manuLabel.coordY);
+    display.print("Manoela Alvares | 190565");
 
     touchInterval = millis();
     alarmInterval = millis();
