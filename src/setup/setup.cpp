@@ -16,6 +16,9 @@ void projectSetup()
     pinMode(buzzerPin, OUTPUT);
     pinMode(dhtPin, OUTPUT);
 
+    ledcAttachPin(buzzerPin, buzzerChannel);
+    ledcSetup(buzzerChannel, 1000, 8);
+
     for (int i = 0; i < sizeof(ledPin) / sizeof(ledPin[0]); i++)
         pinMode(ledPin[i], OUTPUT);
 
